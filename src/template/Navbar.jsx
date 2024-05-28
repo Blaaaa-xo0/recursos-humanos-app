@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
 
@@ -10,7 +10,8 @@ export default function Navbar() {
     }
 
     const isActive = (path) => {
-        return window.location.pathname === path;
+        const location = useLocation()
+        return location.pathname === path
     }
 
     return (
