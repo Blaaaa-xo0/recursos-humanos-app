@@ -14,7 +14,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<ListaEmpleados/>} />
-        <Route path='/' element={<AgregarEmpleados/>} />
+        <Route path='/agregar' element={<AgregarEmpleados/>} />
       </Routes>
       
     </>
