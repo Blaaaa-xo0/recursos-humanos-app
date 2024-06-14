@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { NumericFormat } from 'react-number-format'
+import { Link } from 'react-router-dom'
 
 export default function ListaEmpleados() {
 
@@ -63,7 +64,10 @@ export default function ListaEmpleados() {
                                                 prefix={'$'} />
                                         </td>
                                         <td class="px-6 py-4">
-                                            <button>Editar</button>
+                                            <div className='flex justify-center items-center gap-x-4'>
+                                                <Link to={`/editar/${empleado.id}`} className='focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2'>Editar</Link>
+                                                <Link className='focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2'>Eliminar</Link>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))
