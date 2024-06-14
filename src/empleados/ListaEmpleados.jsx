@@ -18,6 +18,11 @@ export default function ListaEmpleados() {
         setEmpleados(resultado.data)
     }
 
+    const eliminarEmpleado = async (id) => {
+        await axios.delete(`${urlBase}/delete/${id}`)
+        cargarEmpleados()
+    }
+
     return (
         <div>
             <div className='container mx-auto max-w-5xl py-12'>
@@ -66,7 +71,9 @@ export default function ListaEmpleados() {
                                         <td class="px-6 py-4">
                                             <div className='flex justify-center items-center gap-x-4'>
                                                 <Link to={`/editar/${empleado.id}`} className='focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2'>Editar</Link>
-                                                <Link className='focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2'>Eliminar</Link>
+                                                <button  onClick={() => eliminarEmpleado(empleado.id)}
+                                                    className='focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2'
+                                                    >Eliminar</button>
                                             </div>
                                         </td>
                                     </tr>
